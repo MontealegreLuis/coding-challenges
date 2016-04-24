@@ -2,10 +2,7 @@
 $numbers = explode(',', $argv[1]);
 
 $smallest = 1;
-for ($i = 0; $i < count($numbers); $i++) {
-    if ($smallest < $numbers[$i]) {
-        break;
-    }
+for ($i = 0; $i < count($numbers) && $smallest >= $numbers[$i]; $i++) {
     $smallest += $numbers[$i];
 }
 
