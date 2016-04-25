@@ -1,0 +1,21 @@
+{
+    "name": "montealegreluis/challenges",
+    "description": "Monthly coding challenges - PHP Meetup",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luis Montealegre",
+            "email": "montealegreluis@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"": "src"}
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.3"
+    }
+}
