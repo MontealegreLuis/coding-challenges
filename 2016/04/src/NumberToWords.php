@@ -115,26 +115,8 @@ class NumberToWords
      */
     private function extractBlocks($number)
     {
-        $length = strlen($number);
-        $offset = $length % 3;
-
-        // `$i` is always a multiple of 3
-        $blocks = array_map(function ($i) use ($number, $length, $offset) {
-            $size = 3;
-            $start = $i;
-            // Only the first block can have a size different from 3
-            if ($i === 0 && $offset != 0) {
-                $size = $offset;
-            }
-            // Adjust initial index for numbers with a length not divisible by 3
-            if ($i !== 0 && $offset != 0) {
-                $start = $i - (3 - $offset);
-            }
-
-            return substr($number, $start, $size);
-
-        }, range(0, $length <= 3 ? 0 : $length - 1, 3)); // Generate values multiples of 3
-
-        return $blocks;
+        return array_reverse(array_map(function ($block) {
+            return strrev(implode($block));
+        }, array_chunk(str_split(strrev($number)), 3)));
     }
 }
